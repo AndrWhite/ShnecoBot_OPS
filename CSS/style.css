@@ -101,7 +101,8 @@ header.fixed #logo {
 
 #top {
   width: 100%;
-  background-image: url(https://www.lovelymockups.com/wp-content/uploads/2017/01/mackbook-on-table.jpg);
+  background-image: url(/home/user/Документы/ShnecoBot/Foto/sneg.png);
+  background-position: center;
   background-blend-mode: multiply;
   background-color: #2e3a44;
   background-size: cover;
@@ -187,23 +188,8 @@ header.fixed #logo {
 
 /* Блок с преимуществами */
 
-#overview {
-  float: left;
-  background-image: url(https://images.unsplash.com/1/work-station-straight-on-view.jpg?ixlib=rb-0.3.5&s=d055e15d0b8fd2de7295b726274d312b&dpr=1&auto=format&fit=crop&w=1000&q=80&cs=tinysrgb);
-
-  background-blend-mode: multiply;
-  background-color: #403f40;
-  background-size: cover;
-  background-attachment: fixed;
-
-  padding: 100px 0;
-  width: 100%;
-  text-align: center;
-  color: #fff;
-}
-
-#overview h2 {font-size: 4em}
-#overview h4 {color: #ccc; font-size: 1.5em}
+#overview h2 {font-size: 3em}
+#overview h4 {color: #ccc; font-size: 1.2em}
 
 @media (min-width: 561px) {
   #overview h2 {font-size: 4em}
@@ -213,30 +199,10 @@ header.fixed #logo {
   #overview h2 {font-size: 2em}
 }
 
-#overview .img {
-  float: left;
-  width: 30%;
-  margin-right: 5%;
-  margin-top: 50px;
-}
-
-#overview .img:nth-child(odd) {
-  margin-left: 18%;
-}
-
-#overview img {
-  background: #fafafa;
-  padding: 5px;
-  border: 2px solid silver;
-  float: left;
-  width: 100%;
-  max-width: 500px;
-}
-
 #overview span {
   float: left;
   width: 100%;
-  font-size: 2em;
+  font-size: 1.5em;
   margin-top: 10px;
 }
 
@@ -253,8 +219,8 @@ header.fixed #logo {
   width: 100%;
   float: left;
   padding-bottom: 40px;
-  padding-top: 70px;
-  border-top: 4px solid #ccc;
+  padding-top: 90px;
+  border-top: 0px solid #ccc;
   background: #f4f4f4;
 }
 
@@ -371,4 +337,65 @@ h1, h2, h3, h4, h5 {
   color: #4a4a4a;
   font-size: 0.95em;
   margin-bottom: 40px;
+}
+
+
+/*pic headset*/
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  color: #fff;
+  background-color: #f6f6f6;
+}
+#boxercontainer {
+  width: 80%;
+  background-color: #f6f6f6;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 45%;
+  background-size: 120% 120%;
+  background-position: 50% 50%;
+  overflow: hidden;
+  min-height: 650px;
+}
+#boxercontainer img { 
+  background-color: #f6f6f6;
+  position: absolute;
+  right: 25%;
+  width: 60%;
+  padding: 1rem;
+  z-index: 2;
+}
+
+
+@media all and (max-width: 1200px) {
+  #boxercontainer { width: 100%; }
+}
+@media all and (max-width: 875px) {
+  #boxercontainer img { 
+    width: 50%; 
+    right: -50px;
+  }
+}
+@media all and (max-width: 725px) {
+  #boxercontainer {
+    background-size: contain;
+  }
+  #boxercontainer img {
+    position: relative;
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+    margin-top: -5%;
+  }
+}
+@media all and (max-width: 500px) {
+  #boxercontainer img {
+    width: 50%;
+    padding: 0;
+  }
 }

@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>ShnecoBot</title>
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="/home/user/Документы/ShnecoBot/CSS/style.css">
 </head>
 <body>
   <header>
     <div id="logo" onclick="slowScroll('#top')">
-      <span>itProger</span>
+      <span>ShnecoBot</span>
     </div>
     <div id="about">
       <a href="#" title="Возможности" onclick="slowScroll('#main')">Возможности</a>
@@ -21,32 +21,22 @@
   </header>
 
   <div id="top">
-    <h1>Программирование</h1>
-    <h3>как способ жизни!</h3>
+    <h1>Прогулка по дикой природе</h1>
+    <h3>не покидая зоны комфорта</h3>
   </div>
 
   <div id="main">
     <div class="intro">
-      <h2>Наши услуги помогут вам!</h2>
-      <span>Большой выбор всего, что может вам пригодиться</span>
+      <h2>Мы используем VR</h2>
+      <span>Подключение из дома или наших центров</span>
     </div>
     <div class="text">
       <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos impedit, ut vero commodi voluptate? Ipsam reiciendis, necessitatibus incidunt ipsa quis sapiente excepturi, optio iusto voluptatibus dolorem officia quidem, numquam eaque minus, autem praesentium rem architecto dolores. Ipsa unde id velit optio magni enim! Illum obcaecati, dolorem distinctio nemo, ipsum iure.</span>
     </div>
   </div>
 
-  <div id="overview">
-    <h2>Преимущества</h2>
-    <h4>с нами все проще</h4>
-
-    <div class="img">
-      <img src="https://itproger.com/img/courses/1532975967.jpg" alt="">
-      <span>Изучение языка Ruby для начинающих</span>
-    </div>
-    <div class="img">
-      <img src="https://itproger.com/img/courses/1530341233.jpg" alt="">
-      <span>Уроки PhotoShop для начинающих</span>
-    </div>
+  <div id="boxercontainer">
+  	<img src="/home/user/Документы/ShnecoBot/Foto/headset.png" alt>
   </div>
 
   <div id="contacts">
@@ -106,6 +96,33 @@
       else
         $("header").attr("class", "fixed");
     });
+
+
+    const boxer = boxercontainer.querySelector("img"),
+maxMove = boxercontainer.offsetWidth / 30,
+boxerCenterX = boxer.offsetLeft + (boxer.offsetWidth / 2),
+boxerCenterY = boxer.offsetTop + (boxer.offsetHeight / 2),
+fluidboxer = window.matchMedia("(min-width: 726px)");
+
+function getMousePos(xRef, yRef) {
+  
+  let panelRect = boxercontainer.getBoundingClientRect();
+  return {
+	  x: Math.floor(xRef - panelRect.left) /(panelRect.right-panelRect.left)*boxercontainer.offsetWidth,
+	  y: Math.floor(yRef - panelRect.top) / (panelRect.bottom -panelRect.top) * boxercontainer.offsetHeight
+    };
+}
+
+document.body.addEventListener("mousemove", function(e) {
+  let mousePos = getMousePos(e.clientX, e.clientY),
+  distX = mousePos.x - boxerCenterX,
+  distY = mousePos.y - boxerCenterY;
+  if (Math.abs(distX) < 500 && distY < 200 && fluidboxer.matches) {
+  boxer.style.transform = "translate("+(-1*distX)/12+"px,"+(-1*distY)/12+"px)";
+    boxercontainer.style.backgroundPosition = `calc(50% + ${distX/50}px) calc(50% + ${distY/50}px)`;
+  }
+})
+
   </script>
 </body>
 </html>
